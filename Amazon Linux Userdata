@@ -1,0 +1,7 @@
+#!/bin/bash
+
+yum install update 
+yum install httpd -y
+sudo cd /var/www/html
+echo "web server" > index.html
+systemctl start httpd
