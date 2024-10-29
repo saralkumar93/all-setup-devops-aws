@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#remove SSH keys
+rm -rf -/.ssh/autorized_keys
+
+#clear user credentials and history
+rm -rf -/.aws/credentials
+r -rf -/.git-credentials
+rm -rf -/.bash_history
+
+#clear system logs and temporary files
+rm -rf /var/log/*
+rm -rf /temp/*
+rm -rf /var/temp/*
+
+#remove user accounts
+deluser tempuser --remove-home
+
+#lock root account
+passwd -l root
+
+#reset configuration files (example for Nginx)
+rm -rf /etc/nginx/nginx.conf
