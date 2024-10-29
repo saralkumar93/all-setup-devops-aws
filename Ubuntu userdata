@@ -2,3 +2,7 @@
 
 yes |sudo apt-update
 yes |sudo apt install apache2
+cd /var/www/html
+echo "welcome to ubuntu page" > index.html
+systemctl start apache2
+systemctl enable apche2
