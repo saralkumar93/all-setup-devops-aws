@@ -1,0 +1,25 @@
+<powershell>
+#install IIS
+install-windowsFeature -Name Web-Server  -IncludeManagementTools
+
+#Start the IIS service
+start-service -Name W3SVC
+
+#set up a basic html page to test the web server
+$webpagePath = "C:\inetpub\wwwroot\index.html"
+@"
+<!DOCTYPE html>
+<head>
+<title>my windows web server</title>
+</head>
+<body>
+<h1> Welcome to my web server</h1>
+<p> this is a test page served by internet information sservice (IIS) on windows server ec2 instance.
+</p>
+</body>
+</html>
+"@ | out-File -FilePath $webpagePath
+
+#restart the IIS service to apply changes
+restart-service -Name W3SVC
+</powershell>
