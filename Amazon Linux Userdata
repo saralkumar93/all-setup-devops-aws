@@ -5,5 +5,5 @@ yum install httpd -y
 sudo cd /var/www/html
 echo "web server" > index.html
 systemctl start httpd
-systemctl enabled httpd
+systemctl enable httpd
 
