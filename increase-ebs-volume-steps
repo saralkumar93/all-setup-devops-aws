@@ -1,0 +1,24 @@
+step 1:
+take snapshot of EBS volume (to be safe)
+
+step 2:
+increase EBS volume size in aws console
+step 3:
+extend a linux file system after resizing a volume.
+--------------------------------------
+commands to extends the file system
+--------------------------------------
+df -hT
+check whether the volume has a partition 
+sudo lsblk
+
+extend the partition
+sudo growpart /dev/xda 1
+
+sudo lsblk
+
+df -hT
+
+extend the file system on / :
+[XFS file system ] ----> sudo xfs_growfs -d /
+[Ext4 file system ] -----> sudo resize2fs /dev/xvda1
