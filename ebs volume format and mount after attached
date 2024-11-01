@@ -1,0 +1,25 @@
+To format volume
+-----------------
+sudo mkfs.ext4 /dev/xvdf(device name of 10gb)
+sudo mkdir /test 
+mount /dev/xvdf /test
+cd /test
+touch 1 2 3 4 5 
+touch file1 file2 
+
+to check whether mount or not
+mountpoint /test ----- to check
+
+umount /test ------- to unmount the volume
+
+now deattach volume and create new instance and try to attached same volume and see data is there or not'
+after creating ec2 instance attach same volume
+lsblk
+
+file -s /dev/xvdf ---------to check file system
+mkdir /data
+mount /dev/xvdf /data
+cd /data
+ls
+to see old data which you same in the volume.
+
