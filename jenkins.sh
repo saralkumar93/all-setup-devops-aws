@@ -1,3 +1,11 @@
+#!/bin/bash
+yum update -y
+yum install httpd -y
+cd /var/www/html
+echo "web server " >index.html
+systemctl start httpd
+systemctl status httpd
+
 #STEP-1: INSTALLING GIT JAVA-17 and  MAVEN 
 #yum install git java-1.8.0-openjdk maven -y
 yum install java-17-openjdk.x86_64 maven -y
