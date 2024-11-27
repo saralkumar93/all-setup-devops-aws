@@ -1,0 +1,35 @@
+pipeline {
+    agent {
+        label 'jenkins-slave-1'
+    }
+
+    stages {
+        stage('checkout') {
+            steps {
+              git branch: 'main', changelog: false, poll: false, url: 'https://gitlab.com/saralk/maven-project.git'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+        stage('artifact') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        stage('deploy') {
+            steps {
+                deploy adapters: [tomcat9(credentialsId: '9cff8b65-2869-4f76-97c5-d6f9edaa81c0', path: '', url: 'http://15.207.14.18:8080/')], contextPath: null, war: '**/target/*.war'
+               
+                       
+            }
+        }
+    }
+}
