@@ -10,6 +10,8 @@ docker rmi <image_id> --> to remove / delete an image
 docker commit <container_name> <unique name/your choice> --custom container to image
 docker build -t <image_name>  build an images from dockerfile
 
+docker run -it --name myubuntu ubuntu bash 
+
 docker exec -it <container_name> command(bash) execute a command in running container.
 or to go inside the container after it created
 
@@ -24,3 +26,12 @@ docker stop containerid
 docker start containerid
 docker rm containerid
 docker logs containerid
+
+---------------
+docker login
+----------------
+docker tag ubuntu-git-maven-jenkins <username>(dockerhub)/ubuntu-git-maven-jenkins:v1.0
+docker login
+docker push username of docker hub/ubuntu-git-maven-jenkins(custom imagename):v1.0
+
+
