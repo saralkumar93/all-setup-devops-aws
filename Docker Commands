@@ -1,0 +1,26 @@
+docker ps      ---shows running process
+docker ps -a    --- show active /deactive/exit containers
+---------------------
+docker images
+------------------
+docker images
+docker pull <image name>  -->pull images from docker hub
+docker tag <source image> <target image> --> to tag an image
+docker rmi <image_id> --> to remove / delete an image
+docker commit <container_name> <unique name/your choice> --custom container to image
+docker build -t <image_name>  build an images from dockerfile
+
+docker exec -it <container_name> command(bash) execute a command in running container.
+or to go inside the container after it created
+
+-------------------
+docker container
+--------------------
+docker ps 
+docker ps -a
+docker container ls
+docker run -d <image_name> -->to run container in detached mode
+docker stop containerid
+docker start containerid
+docker rm containerid
+docker logs containerid
