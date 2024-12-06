@@ -1,4 +1,6 @@
 yum update 
+sudo yum install -y python3 python3-pip
+sudo yum install -y python3-devel
 sudo yum install epel-release -y
 sudo yum install ansible
 
